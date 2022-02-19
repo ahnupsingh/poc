@@ -1,6 +1,15 @@
+# Django
+# -------------------
 Django
-mongoengine
+djangorestframework
+
+# 3rd party
+# -------------------
 ipython
+
+# Mongo
+# -------------------
+mongoengine
 
 # pymongo.errors.ConfigurationError: 
 # The "dnspython" module must be installed to use mongodb+srv:// URIs. 

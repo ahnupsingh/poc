@@ -1,11 +1,10 @@
 
 from email.policy import default
 
-from django.forms import IntegerField
 from mongoengine import *
 
 class User(Document):
-    email = StringField(required=True)
+    email = EmailField(required=True)
     first_name = StringField(max_length=50)
     last_name = StringField(max_length=50)
 
@@ -35,7 +34,23 @@ class Post(Document):
         return self.title
 
 
-    meta = {'allow_inheritance': True}
+    meta = {}
+
+    meta = {
+        'allow_inheritance': True,
+        # TODO - Indexes
+        'indexes': [
+            # 'title',   # single-field index
+            '$title',  # text index
+            # '#title',  # hashed index
+            # ('title', '-rating'),  # compound index
+            # ('category', '_cls'),  # compound index
+            # {
+            #     'fields': ['created'],
+            #     'expireAfterSeconds': 3600  # ttl index
+            # }
+        ]
+    }
 
 class TextPost(Post):
     content = StringField()
@@ -47,7 +62,8 @@ class LinkPost(Post):
     link_url = StringField()
 
 class BlogPost(Post):
-    page_views = IntegerField(default=0)
+    page_views = IntField(default=0)
+    body = StringField()
 
 
 # TODO - Dynamic Document Schema
