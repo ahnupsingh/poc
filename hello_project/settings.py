@@ -87,7 +87,9 @@ DATABASES = {
 # Mongo
 import mongoengine
 DB_NAME="mongoengine_poc"
-DB_HOST="mongodb+srv://ahnupsingh:Startwithme-55mongodb@cluster0.wsv4b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+DB_USER="ahnupsingh"
+DB_PASS="Startwithme-55mongodb"
+DB_HOST=f"mongodb+srv://{DB_USER}:{DB_PASS}@cluster0.wsv4b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoengine.connect(DB_NAME, host=DB_HOST)
 # mongoengine.connect(DB_NAME, host='localhost:27017')
 

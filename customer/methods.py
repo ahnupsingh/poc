@@ -70,7 +70,6 @@ def search_post(query):
     # TODO - Make use of query operators - django-filters
     # Page.objects(__raw__={'tags': 'coding'})
 
-    # TODO - Here we are looping through all documents
     for post in Post.objects:
         print(post.title)
         print('=' * len(post.title))
