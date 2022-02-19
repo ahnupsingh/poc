@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Starting shell"
+docker-compose run --rm web python /code/manage.py shell
