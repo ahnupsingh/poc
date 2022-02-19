@@ -1,1 +1,8 @@
 Django
+mongoengine
+ipython
+
+# pymongo.errors.ConfigurationError: 
+# The "dnspython" module must be installed to use mongodb+srv:// URIs. 
+# To fix this error install pymongo with the srv extra:
+pymongo[srv]

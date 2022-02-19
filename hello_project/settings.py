@@ -73,12 +73,19 @@ WSGI_APPLICATION = 'hello_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# Mongo
+import mongoengine
+DB_NAME="mongoengine_poc"
+DB_HOST="mongodb+srv://ahnupsingh:Startwithme-55mongodb@cluster0.wsv4b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoengine.connect(DB_NAME, host=DB_HOST)
+# mongoengine.connect(DB_NAME, host='localhost:27017')
 
 
 # Password validation
