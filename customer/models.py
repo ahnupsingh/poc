@@ -12,6 +12,7 @@ class User(Document):
 class Comment(EmbeddedDocument):
     content = StringField()
     name = StringField(max_length=120)
+    created_on = DateTimeField()
 
 class Post(Document):
     title = StringField(max_length=120, required=True)

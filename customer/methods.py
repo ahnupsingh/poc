@@ -95,5 +95,11 @@ def delete_post(id):
     return Post.objects(id=id).delete()
 
 
+def add_comment(post, comment):
+    post.comments.append(comment)
+    post.save()
+    return post
+
+
 # TODO - Text Search
 # document = News.objects.search_text('testing').first()
