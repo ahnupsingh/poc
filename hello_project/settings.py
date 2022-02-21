@@ -9,12 +9,13 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
+import environ
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+env = environ.Env()
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -86,13 +87,12 @@ DATABASES = {
 
 # Mongo
 import mongoengine
-DB_NAME="mongoengine_poc"
-DB_USER="ahnupsingh"
-DB_PASS="Startwithme-55mongodb"
+DB_NAME=env("DB_NAME")
+DB_USER=env("DB_USER")
+DB_PASS=env("DB_PASS")
 DB_HOST=f"mongodb+srv://{DB_USER}:{DB_PASS}@cluster0.wsv4b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoengine.connect(DB_NAME, host=DB_HOST)
 # mongoengine.connect(DB_NAME, host='localhost:27017')
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

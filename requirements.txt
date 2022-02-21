@@ -2,6 +2,7 @@
 # -------------------
 Django
 djangorestframework
+django-environ==0.8.1
 
 # 3rd party
 # -------------------
